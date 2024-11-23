@@ -82,7 +82,7 @@ class VirtualPet {
             this.petImage.src = "assets/sleeping-cat.jpg";
         } else if (this.hunger > 80) {
             this.petImage.src = "assets/hungry-cat.gif";
-        } else if (this.happiness < 20) {
+        } else if (this.happiness < 40) {
             this.petImage.src = "assets/sad-cat.jpeg";
         } else if (this.energy < 20) {
             this.petImage.src = "assets/sleepy-cat.jpeg";
