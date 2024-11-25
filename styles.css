@@ -1,67 +1,16 @@
 body {
-    font-family: Parkinsans;
+    font-family: Parkinsans, sans-serif;
     display: flex;
+    flex-direction: column;
     justify-content: center; 
     align-items: center; 
-    height: 100vh; 
+    min-height: 100vh; 
     margin: 0; 
     background-color: #89A8B2;
-    overflow: hidden;
-}
-
-.background-icons {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: -1;
-    opacity: 0.4;
-}
-
-.icon {
-    position: absolute;
-    font-size: 2rem;
-    animation: float 20s infinite;
-}
-
-@keyframes float {
-    0% {
-        transform: translate(0, 0);
-    }
-    25% {
-        transform: translate(100px, 100px);
-    }
-    50% {
-        transform: translate(200px, 0);
-    }
-    75% {
-        transform: translate(100px, -100px);
-    }
-    100% {
-        transform: translate(0, 0);
-    }
-}
-
-.icon:nth-child(1) { top: 5%; left: 5%; animation-delay: 0s; }
-.icon:nth-child(2) { top: 15%; left: 80%; animation-delay: -2s; }
-.icon:nth-child(3) { top: 80%; left: 10%; animation-delay: -4s; }
-.icon:nth-child(4) { top: 70%; left: 70%; animation-delay: -6s; }
-.icon:nth-child(5) { top: 40%; left: 40%; animation-delay: -8s; }
-.icon:nth-child(6) { top: 25%; left: 60%; animation-delay: -10s; }
-.icon:nth-child(7) { top: 60%; left: 30%; animation-delay: -12s; }
-.icon:nth-child(8) { top: 90%; left: 90%; animation-delay: -14s; }
-.icon:nth-child(9) { top: 10%; left: 30%; animation-delay: -16s; }
-.icon:nth-child(10) { top: 50%; left: 80%; animation-delay: -18s; }
-.icon:nth-child(11) { top: 30%; left: 10%; animation-delay: -1s; }
-.icon:nth-child(12) { top: 85%; left: 50%; animation-delay: -3s; }
-.icon:nth-child(13) { top: 45%; left: 20%; animation-delay: -5s; }
-.icon:nth-child(14) { top: 20%; left: 90%; animation-delay: -7s; }
-.icon:nth-child(15) { top: 75%; left: 5%; animation-delay: -9s; }
-
-
-.h1 {
-    color: #3d575f;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    padding: 20px;
+    box-sizing: border-box;
 }
 
 .container {
@@ -73,43 +22,78 @@ body {
     text-align: center;
     width: 90%; 
     max-width: 400px;
+    margin-bottom: 60px;
 }
 
-#pet-container {
-    margin: 20px 0;
-}
-
-#pet-image {
-    width: 200px;
-    height: 200px;
-    transition: transform 0.3s ease;
-}
-
-#pet-image:hover {
-    transform: scale(1.1);
-}
-
-#attributes {
+h1 {
+    text-align: center;
+    color: #89A8B2;
     margin-bottom: 20px;
 }
 
-.attribute {
-    margin: 10px 0;
-}
-
-progress {
-    width: 100%;
-    height: 20px;
-}
-
-#actions {
+.now-playing {
     display: flex;
-    justify-content: space-around;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+#pet-image {
+    width: 100%;
+    max-width: 200px;
+    height: auto;
+    transition: transform 0.3s ease;
+}
+
+.song-info h2 {
+    margin: 0;
+    font-size: 1.2em;
+    color: #E8BCB9;
+}
+
+.song-info p {
+    margin: 5px 0;
+    font-size: 0.9em;
+    color: #E8BCB9;
+    opacity: 0.8;
+}
+
+.progress-container {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    color: #E8BCB9;
+}
+
+#seek-slider {
+    flex-grow: 1;
+    margin: 0 10px;
+    -webkit-appearance: none;
+    appearance: none;
+    height: 4px;
+    background: #E8BCB9;
+    border-radius: 2px;
+}
+
+#seek-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 12px;
+    height: 12px;
+    background: #E8BCB9;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.controls {
+    display: flex;
+    justify-content: center;
     margin-bottom: 20px;
 }
 
 button {
-    padding: 10px 20px;
+    padding: 12px 24px;
     font-size: 16px;
     cursor: pointer;
     background-color: #89A8B2;
@@ -117,22 +101,139 @@ button {
     border: none;
     border-radius: 5px;
     transition: background-color 0.3s ease;
+    margin: 5px;
 }
 
 button:hover {
-    background-color: #5a6d74;
+    background-color: #922C5D;
 }
 
-#status-message {
+.volume-container {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    color: #E8BCB9;
+}
+
+#volume-slider {
+    flex-grow: 1;
+    margin-left: 10px;
+    -webkit-appearance: none;
+    appearance: none;
+    height: 4px;
+    background: #E8BCB9;
+    border-radius: 2px;
+}
+
+#volume-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 12px;
+    height: 12px;
+    background: #E8BCB9;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.playlist {
     margin-top: 20px;
-    font-style: italic;
+    height: 150px;
+    overflow-y: auto;
 }
 
+.playlist::-webkit-scrollbar {
+    width: 5px;
+}
+
+.playlist::-webkit-scrollbar-track {
+    background: #1d1019;
+    border-radius: 10px;
+}
+
+.playlist::-webkit-scrollbar-thumb {
+    background: linear-gradient(#922C5D,#A64D79);
+    border-radius: 10px;
+}
+
+h3 {
+    color: #E8BCB9;
+    margin-bottom: 10px;
+}
+
+#playlist-items {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+#playlist-items li {
+    padding: 10px;
+    background-color: #A64D79;
+    margin-bottom: 5px;
+    cursor: pointer;
+    border-radius: 5px;
+    color: #E8BCB9;
+}
+
+#playlist-items li:not(:first-child) {
+    background-color: #E8BCB9;
+    color: #3B1C32;
+}
+
+#playlist-items li:hover {
+    opacity: 0.8;
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 15px;
+        max-width: 300px;
+    }
+    h1 {
+        font-size: 1.5em;
+    }
+    #pet-image {
+        max-width: 150px;
+    }
+    .song-info h2 {
+        font-size: 1em;
+    }
+    .song-info p {
+        font-size: 0.8em;
+    }
+    .controls {
+        margin-bottom: 15px;
+    }
+    button {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    #playlist-items li {
+        padding: 8px;
+        font-size: 0.9em;
+    }
+
+    .playlist {
+        height: 120px;
+    }
+}
 
 footer {
     text-align: center;
     padding: 10px;
     width: 100%; 
-    position: absolute; 
+    position: fixed; 
     bottom: 0;
+    left: 0;
+    background-color: rgba(137, 168, 178, 0.8);
+    z-index: 10;
+}
+
+footer hr {
+    border: 0;
+    height: 1px; 
+    background-color: white; 
+    opacity: 0.5; 
+    margin: 10px 0; 
 }
