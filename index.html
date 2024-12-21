@@ -1,44 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Libre+Baskerville&family=Parkinsans:wght@300..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Red+Rose:wght@300..700&display=swap" rel="stylesheet">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Virtual Pet Simulator</title>
-    <link rel="icon" type="image/png" href="assets/favicon.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <div class="container">
         <h1 class="h1">Virtual Pet Simulator</h1>
-        <div id="pet-container">
-            <img id="pet-image" src="./assets/cat.jpg" alt="Virtual Pet">
+        <div id="pet-container" class="pet-container">
+            <img id="pet-image" src="https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?w=800" alt="Virtual Pet" class="pet-image">
         </div>
-        <div id="attributes">
+        <div id="attributes" class="attributes">
             <div class="attribute">
                 <label for="hunger">Hunger:</label>
-                <progress id="hunger" value="50" max="100"></progress>
+                <div class="progress-container">
+                    <progress id="hunger" value="50" max="100"></progress>
+                </div>
             </div>
             <div class="attribute">
                 <label for="happiness">Happiness:</label>
-                <progress id="happiness" value="50" max="100"></progress>
+                <div class="progress-container">
+                    <progress id="happiness" value="50" max="100"></progress>
+                </div>
             </div>
             <div class="attribute">
                 <label for="energy">Energy:</label>
-                <progress id="energy" value="50" max="100"></progress>
+                <div class="progress-container">
+                    <progress id="energy" value="50" max="100"></progress>
+                </div>
             </div>
         </div>
-        <div id="actions">
-            <button id="feed">Feed 😋</button>
-            <button id="play">Play 🛝</button>
-            <button id="sleep">Sleep 💤</button>
+        <div id="actions" class="actions">
+            <button id="feed" class="btn">Feed 😋</button>
+            <button id="play" class="btn">Play 🛝</button>
+            <button id="sleep" class="btn">Sleep 💤</button>
         </div>
-        <div id="status-message"></div>
+        <div id="status-message" class="status-message"></div>
     </div>
-    <footer>
-        Made with &hearts; by Samarth
+    <footer class="footer">
+        Made with <span class="heart">♥</span> by Samarth
     </footer>
     <script src="script.js"></script>
 </body>
